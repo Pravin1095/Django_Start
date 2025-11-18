@@ -26,4 +26,12 @@ The logic (function or class) that is executed for different URLs (and HTTP meth
 
 For letting django know what urls to accept we need to create urls.py file where we need to have an array of urls in which we need to display the urls. Syntax : urlpatterns = [path("january", views.index)]. 2nd argument is mentioning the function that needs to be called when this url is hit.
 
-Now, challenges is the first url endpoint which we need to put in monthly_challenges url file and there in 2nd argument import include and then mention the file path in it where we have challenges url which is challenges.urls
+Now, challenges is the first url endpoint which we need to put in monthly_challenges url file and there in 2nd argument import include and then mention the file path in it where we have challenges url which is challenges.urls.
+
+Overall flow is as follows:
+
+Client (Sends request to Server) -> Server (Django) -> checks for UrlConfig files -> This further checks for the Views files.
+
+Dynamic url endpoints:
+
+Let's say it is redundant to have all 12 months url individually in our urls file. Instead we can pass a placeholder as first argument to path (syntax : path("<month>")). Here the month is the url endpoint that user is entering after challenges in the browser. So now in views file we need to get this month as argument in our logic function Eg : def monthly_challenge(request, month): Now this month is passed from the urls file to our views file and we can write our logic based on this.
