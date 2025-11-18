@@ -9,6 +9,9 @@ from django.http import HttpResponse, HttpResponseNotFound
 # def february(request):
 #     return HttpResponse("Study Django Daily")
 
+def monthly_challenge_by_number(request, month):
+    return HttpResponse(month)
+
 def monthly_challenge(request, month):
     challenge_text = None
     if(month=='january'):
