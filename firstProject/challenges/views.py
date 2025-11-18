@@ -7,17 +7,29 @@ from django.http import HttpResponse, HttpResponseNotFound
 #     return HttpResponse("Go gym daily!")
 
 # def february(request):
-#     return HttpResponse("Study Django Daily")
+#     return HttpResponse("Study Django Daily")january
+
+monthly_challenges = {
+    "january" : "Go gym daily!",
+    "february" : "Study Django Daily",
+    "march" : "Get new job!",
+    "april" : "Study new skills and keep growing!",
+    "may" : "Get a GirlFriend!",
+    "june" : "Enjoy atleast once!",
+    "july" : "Buy mom a gift atleast this year!",
+    "august" : "Hopefully you are shredded with atleast 15% bodyfat",
+    "september" : "Do not wish her birthday wish!",
+    "october" : "Atleast a 12LPA job at this time!",
+    "november" : "Make sure all the above objectives are completed!",
+    "december" : "Make sure you had a blast year"
+}
 
 def monthly_challenge_by_number(request, month):
     return HttpResponse(month)
 
 def monthly_challenge(request, month):
-    challenge_text = None
-    if(month=='january'):
-        challenge_text = "Go gym daily!"
-    elif(month=='february'):
-        challenge_text = "Study Django Daily"
-    else:
-        return HttpResponseNotFound("This month is not supported!")
+    try:
+        challenge_text = monthly_challenges[month]
+    except:
+        return HttpResponseNotFound("This month is invalid!")
     return HttpResponse(challenge_text)
