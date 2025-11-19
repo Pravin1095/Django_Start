@@ -25,6 +25,16 @@ monthly_challenges = {
     "december" : "Make sure you had a blast year"
 }
 
+def index(request):
+    monthList = list(monthly_challenges.keys())
+    list_Items = ''
+    for month in monthList:
+        redirect_month = reverse("month-challenge", args=[month])
+        list_Items += f"<li><a href={redirect_month}>{month.capitalize()}</a></li>"
+    return HttpResponse(f"""
+<ul>{list_Items}</ul>
+                        """)
+
 def monthly_challenge_by_number(request, month):
     
     monthList = list(monthly_challenges.keys())
@@ -43,5 +53,5 @@ def monthly_challenge(request, month):
     try:
         challenge_text = monthly_challenges[month]
     except:
-        return HttpResponseNotFound("This month is invalid!")
-    return HttpResponse(challenge_text)
+        return HttpResponseNotFound("<h1>This month is invalid!</h1>")
+    return HttpResponse(f"<h1>{challenge_text}</h1>")
