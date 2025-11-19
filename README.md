@@ -35,3 +35,7 @@ Client (Sends request to Server) -> Server (Django) -> checks for UrlConfig file
 Dynamic url endpoints:
 
 Let's say it is redundant to have all 12 months url individually in our urls file. Instead we can pass a placeholder as first argument to path (syntax : path("<month>")). Here the month is the url endpoint that user is entering after challenges in the browser. So now in views file we need to get this month as argument in our logic function Eg : def monthly_challenge(request, month): Now this month is passed from the urls file to our views file and we can write our logic based on this.
+
+reverse:
+
+This function in the views.py , we use it for setting the url endpoints as dynamic instead of hardcoding (We hardcoded as /challenges in HttpRedirectResponse). In reverse the first argument we get from urls.py file where we send as 3rd argument and that contains the endpoint /challenges in it. For the other endpoint like jan or feb we need to pass 2nd argument to reverse with the endpoint name in an array (args=[redirect_month])
