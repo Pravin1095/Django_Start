@@ -4,6 +4,14 @@ Pdf for Django :
 
 https://github.com/academind/django-practical-guide-course-code/tree/setup-zz-extra-files
 
+Code snapshot repository: https://github.com/academind/django-practical-guide-course-code
+
+For this section, the branches starting with "urls-views-..." hold the code snapshots for this course module.
+
+For example: https://github.com/academind/django-practical-guide-course-code/tree/urls-views-01-adding-a-first-url-and-view
+
+Module slides can be found in this branch: https://github.com/academind/django-practical-guide-course-code/tree/urls-views-zz-extra-files
+
 
 Django: 
 
